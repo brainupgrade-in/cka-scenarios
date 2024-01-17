@@ -1,10 +1,14 @@
 #!/bin/bash
 
-# Create a Kubernetes cluster using KIND
-sudo kind create cluster --name dev-cluster
+sudo usermod -aG docker $USER
+newgrp docker
 
-mkdir -p $HOME/.kube
-sudo cp -i /root/.kube/config $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# Create a Kubernetes cluster using KIND
+kind create cluster --name dev-cluster
+
+#mkdir -p $HOME/.kube
+#sudo cp -i /root/.kube/config $HOME/.kube/config
+#sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 # Apply scenario setup
 kubectl apply -f /workspace/scenario.yaml
