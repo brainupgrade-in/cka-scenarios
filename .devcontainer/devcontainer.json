@@ -1,0 +1,24 @@
+{
+  "name": "Kubernetes-Dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "KIND_VERSION": "v0.11.1"
+    }
+  },
+  "settings": { 
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-kubernetes-tools.vscode-kubernetes-tools",
+    "ms-azuretools.vscode-docker"
+  ],
+  "mounts": [
+    "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+  ],
+  "features": {
+    "docker-in-docker": "latest"
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "remoteUser": "vscode"
+}
