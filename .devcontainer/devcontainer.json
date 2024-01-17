@@ -3,7 +3,7 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "KIND_VERSION": "v0.11.1"
+      "KIND_VERSION": "v0.20.0"
     }
   },
   "settings": { 
